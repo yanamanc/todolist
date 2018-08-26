@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>SIMPLE TODO LISTS</h1>
+<h3>FROM RUBY GARAGE</h3>
+
+
+    <% @projects.each do |project| %>
+    <table>
+
+  <tr class="thead imagetip">
+  <td><%= link_to image_tag('timetable.png')%></td>
+  <td><%= project.name %></td>
+  <td><span>
+    <%= link_to image_tag('show.png'), project %>
+        <%= link_to image_tag('edit.png'), edit_project_path(project) %> 
+        <%= link_to image_tag('delete.png'), project, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  </td>
+  </tr>
+
+  <tr class="new_task_dizayn">
+      <td><%= link_to image_tag('plus.png')%></td>
+      <td colspan="2">
+      <section id: "tast-link">
+      <%= form_for(@create_task) do |f| %>
+      <%= f.text_field :name , style:"width:600px; border-radius:0px; height:35px; float:left;" , placeholder:"   Start typing here to create a task..." %>
+      <input type="submit" value="Add Task" class="btn">
+      <% end %>
+      </section>
+      </td>
+
+
+<tr>
+    <% @your_tasks.each do |your_task| %>
+      <tr  class="imagetip borders" target="_blank">
+        <td style="padding-left:16px;">
+        <input type="checkbox"  id="test-check">
+        <%= your_task.status %></td>
+        <td><%= your_task.name %></td>
+        <td class="last_column"><span>
+        <%= link_to image_tag('show.png'), your_task %>|
+        <%= link_to image_tag('edit.png'), edit_your_task_path(your_task) %>|
+        <span class="DeleteAction"><%= link_to image_tag('delete.png'), your_task, method: :delete, data: { confirm: 'Are you sure?' } %></span></span></td>
+
+      </tr>
+    <% end %>
+</tr>
+</table>
+<% end %>
+<br>
+
+<%= link_to 'New Project', new_project_path %>

@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<h1>SIMPLE TODO LIST</h1>
+<h3>FROM RUBY GARAGE</h3>
+
+
+<table>
+  <tr class=thead>
+  <td><%= link_to image_tag('timetable.png')%></td>
+  <td>Complete the test task for Ruby Garage</td>
+  <td></td>
+  </tr>
+    <tr class="new_task_dizayn">
+      <td><%= link_to image_tag('plus.png')%></td>
+      <td colspan="2"> 
+      <%= form_for(@create_task) do |f| %>
+      <%= f.text_field :name , style:"width:600px; border-radius:0px; height:35px; float:left;" , placeholder:"   Start typing here to create a task..." %>
+      <input type="submit" value="Add Task" class="btn">
+      <% end %>
+      </td>
+    </tr>
+  
+
+  <tbody>
+    <% @your_tasks.each do |your_task| %>
+      <tr  class="imagetip" target="_blank">
+        <td style="padding-left:16px;">
+        <input type="checkbox"  id="test-check">
+        <%= your_task.status %></td>
+        <td><%= your_task.name %></td>
+        <td class="last_column"><span>
+        <%= link_to image_tag('show.png'), your_task %>
+        <%= link_to image_tag('edit.png'), edit_your_task_path(your_task) %> | 
+        <%= link_to image_tag('delete.jpg'), your_task, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<button style="background:linear-gradient(to bottom, #5274d9, #052da6);
+  color: white;">Add TODO List</button>
+<%= link_to 'New Your Task', new_your_task_path %>

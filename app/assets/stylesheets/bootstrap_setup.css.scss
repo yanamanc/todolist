@@ -1,0 +1,76 @@
+@import 'bootstrap'; 
+
+.container-background {
+width: 100%;
+height: 100vh;
+background-size: cover;
+background:linear-gradient(to bottom,  #f7b500, #052da6);
+/*background-image: url(image_path('background.jpg'));*/
+} 
+
+h1, h3{
+	text-align: center;
+}
+
+img{
+	width: 40px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+table{
+	width:70%;
+	margin: auto;
+	background-color: white;
+	margin-top: 50px;
+	border-radius: 0 0 20px 20px;
+	box-shadow: 0 0 3px 0;
+
+	.thead{
+	background:linear-gradient(to bottom, #5274d9, #052da6);
+	color: white;
+	}
+
+	.new_task_dizayn{
+		background-color: rgb(179, 179, 179);
+	}
+
+	.new_task_dizayn:hover{
+	background-color: rgb(179, 179, 179);
+	}
+
+	.new_task_dizayn .btn{
+	float:left;
+	height:35px;
+	background:linear-gradient(to bottom, #72db74, #0f6611);
+	color:white;
+	border-radius: 0 10px 10px 0;
+	}
+}
+
+td{
+	height: 50px;
+}
+
+.borders td{
+	border-top: 1px solid #e8edff;
+	border-right: 1px solid #e8edff;
+}
+
+.imagetip span{
+    visibility: hidden;
+    width: 10%;
+}
+
+.imagetip:hover span{
+visibility: visible;
+
+}
+
+.last_column{
+	width:150px;
+}
+
+tr:hover {
+	background-color: #fffdbf;
+}
